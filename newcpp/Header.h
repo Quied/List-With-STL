@@ -85,7 +85,7 @@ struct List {
 
 	void pop_front() {
 		Node* y = first;
-		first->next = first;
+		first = first->next;
 		delete y;		
 	}
 
@@ -97,6 +97,14 @@ struct List {
 				break;
 			}
 			e = e->next;
+		}
+		while (1) {
+			if (e == nullptr) {
+				break;
+		}
+			else {
+				e = e->next;
+			}
 		}
 		delete e;
 	}
