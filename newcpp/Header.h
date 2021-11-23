@@ -48,7 +48,7 @@ struct List {
 		a = 0;
 		Node* k = first;
 		while (1) {
-			if (k->next == NULL) break;
+			if (k->next == NULL) { std::cout << "size: 0 " << std::endl; break; }
 			else {
 				a++;
 			}
@@ -99,12 +99,8 @@ struct List {
 			e = e->next;
 		}
 		while (1) {
-			if (e == nullptr) {
-				break;
-		}
-			else {
-				e = e->next;
-			}
+			if (e == nullptr) { break; }
+			else {	e = e->next; }
 		}
 		delete e;
 	}
@@ -119,4 +115,33 @@ struct List {
 		std::cout << std::endl;
 	}
 
+	void find(int F) {
+		Node* q = first;
+		int amount = 0;
+		amount_El(amount);
+		for (int i = 0; i < amount; i++) {
+			if (F == q->data) {
+				std::cout << "Number of element: " << i << std::endl;
+				std::cout << "Addres: " << q << std::endl;
+				break;
+			}
+			else {
+				q = q->next;
+			}
+		}
+	}
+
+	int size() {
+		int amount = 0;
+		amount_El(amount);
+		return amount;
+	}
+
+	void clear() {
+		int amount = 0;
+		amount_El(amount);
+		for (int i = 0; i < amount; i++) {
+			pop_front();
+		}
+	}
 };
